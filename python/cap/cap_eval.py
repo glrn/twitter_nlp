@@ -8,7 +8,13 @@
 
 import re
 import sys
-sys.path.append('/homes/gws/aritter/twitter_nlp/python')
+#sys.path.append('/home/user/Documents/twitter_nlp-master')
+
+import os,sys,inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+BASE_DIR = os.path.dirname(parentdir)
+sys.path.append(BASE_DIR)
 
 import twokenize
 

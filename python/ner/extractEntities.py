@@ -12,14 +12,23 @@ from signal import *
 
 import argparse
 
-BASE_DIR = 'twitter_nlp.jar'
+#BASE_DIR = 'twitter_nlp.jar'
+#BASE_DIR = '/home/user/Documents/twitter_nlp-master'
+
+#sys.path.append('%s/python' % (BASE_DIR))
+#sys.path.append('%s/python/ner' % (BASE_DIR))
+#sys.path.append('%s/hbc/python' % (BASE_DIR))
+
+import os,sys,inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+BASE_DIR = os.path.dirname(parentdir)
+sys.path.insert(0,os.path.join(BASE_DIR,'python')) # insert '../../python' to path
+sys.path.insert(0,os.path.join(BASE_DIR,'python/ner')) # insert '../../python/ner' to path
+sys.path.insert(0,os.path.join(BASE_DIR,'hbc/python')) # insert '../../hbc/python' to path
 
 if os.environ.has_key('TWITTER_NLP'):
     BASE_DIR = os.environ['TWITTER_NLP']
-
-sys.path.append('%s/python' % (BASE_DIR))
-sys.path.append('%s/python/ner' % (BASE_DIR))
-sys.path.append('%s/hbc/python' % (BASE_DIR))
 
 import Features
 import twokenize

@@ -3,7 +3,13 @@ import os
 import sys
 
 # NEED REPO LOCATION
-BASE_DIR = 'twitter_nlp.jar'
+#BASE_DIR = 'twitter_nlp.jar'
+#BASE_DIR = '/home/user/Documents/twitter_nlp-master'
+
+import os,sys,inspect
+currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
+parentdir = os.path.dirname(currentdir)
+BASE_DIR = os.path.dirname(parentdir)
 
 if os.environ.has_key('TWITTER_NLP'):
     BASE_DIR = os.environ['TWITTER_NLP']
